@@ -1,0 +1,19 @@
+# Ignore tout par défaut
+*
+
+# Autoriser le projet
+!.gitignore
+!README.md
+!REPORT.md
+!docker-compose.yml
+!.dockerignore
+!.env.example
+
+!api/**
+!front/**
+!db/**
+!scripts/**
+
+# Ignore fichiers système
+.DS_Store
+Thumbs.db
