@@ -23,7 +23,7 @@ services:
       - .env.example
     environment:
       DB_HOST: db
-      # DB_PORT, DB_USER, DB_PASSWORD and DB_NAME are loaded from .env.example
+   
       FRONT_ORIGIN: "*"
     ports:
       - "8000:8000"
@@ -35,8 +35,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    # No capabilities dropped for front (nginx needs to create/chown cache dirs)
-
+   
   front:
     build: ./front
     ports:
