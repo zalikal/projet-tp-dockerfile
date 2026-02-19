@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>TP Docker – Front</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 80px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 25px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: #e9f1ff;
+        margin-bottom: 10px;
+        padding: 12px 15px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: #1f3a5f;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 0.9em;
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>📦 Liste des items</h1>
+      <ul id="items"></ul>
+      <div class="footer">
+        TP Docker – Front statique
+      </div>
+    </div>
+
+    <script>
+      async function load() {
+        try {
+          const res = await fetch("http://localhost:8000/items");
+          const items = await res.json();
+          const ul = document.getElementById("items");
+
+          items.forEach(i => {
+            const li = document.createElement("li");
+            li.textContent = i.name;
+            ul.appendChild(li);
+          });
+        } catch (e) {
+          document.body.innerHTML = "Erreur lors du chargement des données.";
+        }
+      }
+      load();
+    </script>
+  </body>
+</html>

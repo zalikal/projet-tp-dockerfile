@@ -1,19 +1,45 @@
-# Ignore tout par défaut
-*
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
 
-# Autoriser le projet
-!.gitignore
-!README.md
-!REPORT.md
-!docker-compose.yml
-!.dockerignore
-!.env.example
+# Environnements virtuels
+venv/
+.venv/
+env/
+ENV/
 
-!api/**
-!front/**
-!db/**
-!scripts/**
+# Variables d'environnement (sauf .env.example)
+.env
+.env.local
+.env.*.local
 
-# Ignore fichiers système
+# Fichiers système
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+logs/
+
+# Docker (volumes et builds locaux)
+docker-compose.override.yml
+
+# Node modules (si vous ajoutez du JS)
+node_modules/
+
+# Git
+.git/
